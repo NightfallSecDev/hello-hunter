@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>N-Society</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins">
+  <style>
+    body, h1, h2, h3, h4, h5 {
+      font-family: "Poppins", sans-serif;
+    }
+    body {
+      font-size: 16px;
+    }
+    .w3-half img {
+      margin-bottom: -6px;
+      margin-top: 16px;
+      opacity: 0.8;
+      cursor: pointer;
+    }
+    .w3-half img:hover {
+      opacity: 1;
+    }
+    .terminal-box {
+      background-color: #2b2b2b;
+      color: #00ff00;
+      padding: 15px;
+      border-radius: 5px;
+      margin-top: 20px;
+      font-family: monospace;
+    }
+    .prompt {
+      color: #ff5733;
+    }
+    .line {
+      cursor: pointer;
+    }
+    .line:hover {
+      text-decoration: underline;
+    }
+    .copied-text {
+      display: none;
+      color: #fff;
+      background-color: #00ff00;
+      padding: 5px;
+      border-radius: 3px;
+      margin-top: 5px;
+      font-size: 14px;
+    }
+  </style>
+</head>
+<body>
+
+<!-- Sidebar/menu -->
+<nav class="w3-sidebar w3-red w3-collapse w3-top w3-large w3-padding" style="z-index:3;width:300px;font-weight:bold;" id="mySidebar"><br>
+  <a href="javascript:void(0)" onclick="w3_close()" class="w3-button w3-hide-large w3-display-topleft" style="width:100%;font-size:22px">Close Menu</a>
+  <div class="w3-container">
+    <h3 class="w3-padding-64"><b>Nightfall<br>Society</b></h3>
+  </div>
+  <div class="w3-bar-block">
+    <a href="index.html" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Home</a> 
+    <a href="installation.html" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Installation</a> 
+    <a href="find_subdomains.html" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Find Subdomains</a> 
+    <a href="#designers" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Designers</a> 
+    <a href="#packages" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Packages</a> 
+    <a href="contact.html" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Contact</a>
+    <a href="aboutus.html" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">About us</a>
+  </div>
+</nav>
+
+<!-- Top menu on small screens -->
+<header class="w3-container w3-top w3-hide-large w3-red w3-xlarge w3-padding">
+  <a href="javascript:void(0)" class="w3-button w3-red w3-margin-right" onclick="w3_open()">&#9776;</a>
+  <span>Company Name</span>
+</header>
+
+<!-- Overlay effect when opening sidebar on small screens -->
+<div class="w3-overlay w3-hide-large" onclick="w3_close()" style="cursor:pointer" title="close side menu" id="myOverlay"></div>
+
+<!-- !PAGE CONTENT! -->
+<div class="w3-main" style="margin-left:340px;margin-right:40px">
+
+  <h2>Find Subdomain</h2>
+  <div class="terminal-box">
+    <span class="prompt">N-Society@N-Society:~$</span>
+    <span class="line" onclick="copyText(this)">subfinder -d Google.com --silent | httpx --silent -o Google.com.txt</span>
+    <div class="copied-text">Text copied to clipboard!</div>
+  </div>
+
+  <h2>Find Subdomain</h2>
+  <div class="terminal-box">
+    <span class="prompt">N-Society@N-Society:~$</span>
+    <span class="line" onclick="copyText(this)">subfinder -d Google.com --silent | httpx --silent -o Google.com.txt</span>
+    <div class="copied-text">Text copied to clipboard!</div>
+  </div>
+
+</div>
+
+<!-- Footer -->
+<div class="w3-light-grey w3-container w3-padding-32" style="margin-top:75px;padding-right:58px">
+  <p class="w3-right">Powered by <a href="N-Society.html" title="W3.CSS" target="_blank" class="w3-hover-opacity">N-Society</a></p>
+</div>
+
+<script>
+// Script to open and close sidebar
+function w3_open() {
+  document.getElementById("mySidebar").style.display = "block";
+  document.getElementById("myOverlay").style.display = "block";
+}
+ 
+function w3_close() {
+  document.getElementById("mySidebar").style.display = "none";
+  document.getElementById("myOverlay").style.display = "none";
+}
+
+// Copy text functionality
+function copyText(element) {
+  const tempInput = document.createElement("input");
+  document.body.appendChild(tempInput);
+  tempInput.value = element.textContent.trim();
+  tempInput.select();
+  document.execCommand("copy");
+  document.body.removeChild(tempInput);
+
+  const copiedText = element.nextElementSibling;
+  copiedText.style.display = "block";
+  setTimeout(() => copiedText.style.display = "none", 2000);
+}
+</script>
+
+</body>
+</html>
